@@ -71,9 +71,9 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
 .envelope-top{position:absolute;inset:0;background:#ececec;clip-path:polygon(0 0,50% 58%,100% 0);z-index:2}
 .envelope-seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-42%);width:126px;height:126px;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.22));z-index:5}
 
-.envelope-btn{margin-top:26px}
+.seal-button{position:absolute;left:50%;top:50%;transform:translate(-50%,-42%);width:126px;height:126px;border:0;background:transparent;z-index:10;padding:0;cursor:pointer;display:grid;place-items:center;border-radius:50%;touch-action:manipulation}.seal-button img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.22))}.seal-button:focus-visible{outline:3px solid var(--pacay-dark);outline-offset:5px}.envelope-btn{margin-top:26px}
 .hero-phrase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(2rem,6vw,3rem);line-height:1.28;color:var(--pacay-dark);margin:28px auto 0;max-width:560px}
-.corner-floral-left,.corner-floral-right{position:absolute;top:18px;width:clamp(108px,20vw,185px);height:auto;pointer-events:none;opacity:1;z-index:3;filter:drop-shadow(0 3px 8px rgba(185,151,91,.18))}.corner-floral-left{left:12px;transform:scaleX(-1)}.corner-floral-right{right:12px}
+.corner-floral-left,.corner-floral-right{position:absolute;top:12px;width:clamp(100px,17vw,165px);height:auto;pointer-events:none;opacity:1;z-index:3;filter:drop-shadow(0 3px 8px rgba(185,151,91,.18))}.corner-floral-left{left:0;transform:scaleX(-1)}.corner-floral-right{right:0}.hero-inner>.kicker{padding-top:118px;position:relative;z-index:4}
 
 .photo-card{width:min(560px,100%);margin:34px auto 0;padding:14px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 28px rgba(0,0,0,.06)}
 .photo{aspect-ratio:4/5;object-fit:cover;object-position:center}
@@ -85,9 +85,9 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
 .calendar{max-width:420px;margin:30px auto;display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
 .calendar div{aspect-ratio:1;display:grid;place-items:center;font-size:13px}
 .calendar .dayname{font-size:11px;font-weight:700;color:var(--muted)}
-.calendar .heartday{position:relative;color:#fff;font-weight:700}
-.calendar .heartday::before{content:'❤';position:absolute;font-size:44px;color:var(--red);z-index:0;line-height:1;filter:drop-shadow(0 2px 2px rgba(0,0,0,.08))}
-.calendar .heartday span{position:relative;z-index:1;font-size:14px;font-weight:700;margin-top:-3px}
+.calendar .heartday{position:relative;display:grid;place-items:center;color:#fff;font-weight:700;isolation:isolate}
+.calendar .heartday::before{content:'❤';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:44px;color:var(--red);z-index:-1;line-height:1;filter:drop-shadow(0 2px 2px rgba(0,0,0,.08))}
+.calendar .heartday span{position:relative;z-index:1;display:grid;place-items:center;font-size:14px;font-weight:700;line-height:1;margin:0}
 .counter{display:flex;justify-content:center;gap:clamp(10px,4vw,26px);margin-top:28px;flex-wrap:wrap}
 .counter-box{min-width:72px}
 .counter strong{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,7vw,3.6rem);font-weight:500;line-height:1}
@@ -119,8 +119,9 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
   .sponsor-grid{grid-template-columns:1fr}
   .hero .names{font-size:clamp(4.2rem,18vw,6rem)}
   .hero-phrase{font-size:2.1rem}
-  .corner-floral-left{left:2px;top:18px;width:112px}
-  .corner-floral-right{right:2px;top:18px;width:112px}
+  .corner-floral-left{left:2px;top:8px;width:100px}
+  .corner-floral-right{right:2px;top:8px;width:100px}
+  .hero-inner>.kicker{padding-top:94px;font-size:10px;letter-spacing:.19em}
 }
 </style>
 </head>
@@ -136,10 +137,10 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
     <img src="flor_dorada.png" class="corner-floral-right" alt="" aria-hidden="true">
     <div class="names">Esteban y Jhovana</div>
     <div class="date">09 · ENERO · 2027</div>
-    <div class="envelope-box" aria-hidden="true">
+    <div class="envelope-box">
       <div class="envelope">
         <div class="envelope-top"></div>
-        <img src="sello_EJ.png" class="envelope-seal" alt="Sello dorado con las iniciales E y J">
+        <button class="seal-button" id="openSeal" type="button" aria-label="Abrir la invitación tocando el sello dorado"><img src="sello_EJ.png" alt="Sello de lacre dorado E y J"></button>
       </div>
     </div>
     <div class="envelope-btn"><a class="hero-btn" href="#bienvenida" id="openInvitation">Abrir nuestra invitación &nbsp; ✉</a></div>
@@ -244,7 +245,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
         <div class="panel"><span class="sicon">🎥</span><h3>De video</h3><p>Lurdes Condori Marca</p></div>
         <div class="panel"><span class="sicon">✨</span><h3>De mosaico</h3><p>Marcia Virginia Aranibar Severiche<br>Jorge Antonio Guzmán Pérez</p></div>
         <div class="panel"><span class="sicon">🎁</span><h3>De sorpresa</h3><p>Rocío Gonzales Rojas<br>Mauricio Ayala Zegarra</p></div>
-        <div class="panel"><span class="sicon">🌷</span><h3>Madrina de recuerditos</h3><p>Andrea Pericón Gonzales</p></div>
+        <div class="panel"><span class="sicon">🌷</span><h3>De recuerditos</h3><p>Andrea Pericón Gonzales</p></div>
       </div>
       <p class="lead">El amor se vuelve más grande cuando lo celebramos con quienes queremos.</p>
     </div>
@@ -286,6 +287,7 @@ async function toggleMusic(){
 }
 musicBtn.addEventListener('click',toggleMusic);
 document.getElementById('openInvitation').addEventListener('click',()=>{ if(!playing) toggleMusic(); });
+document.getElementById('openSeal').addEventListener('click',()=>{if(!playing) toggleMusic(); document.getElementById('bienvenida').scrollIntoView({behavior:'smooth',block:'start'});});
 const target = new Date('2027-01-09T13:00:00-04:00');
 function tick(){
   const ms = Math.max(0,target - Date.now());
