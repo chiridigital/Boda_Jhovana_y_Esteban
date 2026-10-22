@@ -18,8 +18,8 @@
   --cream:#f6f3ef;
   --soft:#fbf9f6;
   --line:#e5ddd1;
-  --text:#2d2d2d;
-  --muted:#6c6a66;
+  --text:#2f4a39;
+  --muted:#6f7d73;
   --red:#c73737;
 }
 *{box-sizing:border-box}
@@ -33,9 +33,9 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
 .kicker{font-size:11px;letter-spacing:.30em;text-transform:uppercase;color:var(--pacay);text-align:center}
 .section{padding:94px 0;position:relative;text-align:center}
 .section.alt{background:#f2eee8}
-.section h2{font-size:clamp(2.4rem,7vw,4.8rem);line-height:1.02;margin:.15em 0 .35em}
-.lead{font-family:'Cormorant Garamond',serif;font-size:clamp(21px,4vw,29px);line-height:1.42;max-width:640px;margin:18px auto 0}
-.script{font-family:'Great Vibes',cursive;font-size:clamp(4.2rem,12vw,7.8rem);line-height:.95;color:#222}
+.section h2{font-size:clamp(2.4rem,7vw,4.8rem);line-height:1.02;margin:.15em 0 .35em;color:var(--pacay-dark)}
+.lead{font-family:'Cormorant Garamond',serif;font-size:clamp(21px,4vw,29px);line-height:1.42;max-width:640px;margin:18px auto 0;color:var(--pacay-dark)}
+.script{font-family:'Great Vibes',cursive;font-size:clamp(4.2rem,12vw,7.8rem);line-height:.95;color:var(--pacay-dark)}
 .ornament{font-size:24px;color:var(--gold);margin:20px 0}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:13px 30px;background:var(--pacay);color:#fff;text-transform:uppercase;letter-spacing:.14em;font-size:11px;transition:.2s;border:1px solid var(--pacay);cursor:pointer}
 .btn:hover{background:var(--gold);border-color:var(--gold)}
@@ -43,7 +43,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
 .hero-btn:hover{background:var(--pacay-dark)}
 
 #falling-decor{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:6}
-.fall-item{position:absolute;top:-10vh;font-size:14px;opacity:.16;animation-name:falling, sway;animation-timing-function:linear, ease-in-out;animation-iteration-count:1,infinite}
+.fall-item{position:absolute;top:-10vh;font-size:14px;opacity:.28;animation-name:falling, sway;animation-timing-function:linear, ease-in-out;animation-iteration-count:1,infinite;filter:drop-shadow(0 1px 2px rgba(185,151,91,.18))}
 @keyframes falling{to{transform:translateY(115vh) rotate(360deg)}}
 @keyframes sway{0%,100%{margin-left:0}50%{margin-left:22px}}
 
@@ -60,20 +60,20 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
   background:linear-gradient(180deg, #f6f3ef 0%, #f7f4f0 68%, #f4efe7 100%);
 }
 .hero-inner{position:relative;z-index:2;width:min(860px,92%);padding:56px 0 70px}
-.hero .names{font-family:'Great Vibes',cursive;font-size:clamp(4.8rem,18vw,8.5rem);line-height:.88;color:#232323;margin:18px 0 8px}
+.hero .names{font-family:'Great Vibes',cursive;font-size:clamp(4.8rem,18vw,8.5rem);line-height:.88;color:var(--pacay-dark);margin:18px 0 8px}
 .hero .date{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--pacay-dark);margin:8px 0 44px}
 .hero-photo{display:none}
 .envelope-box{width:min(500px,86vw);margin:0 auto;position:relative}
-.envelope{position:relative;width:100%;height:180px;background:#f1f1f1;border-radius:2px;box-shadow:0 16px 30px rgba(0,0,0,.08)}
-.envelope::before,.envelope::after{content:'';position:absolute;top:0;width:50%;height:100%;background:#f7f7f7}
+.envelope{position:relative;width:100%;height:180px;background:#f1f1f1;border-radius:2px;box-shadow:0 16px 30px rgba(0,0,0,.08);overflow:visible}
+.envelope::before,.envelope::after{content:'';position:absolute;top:0;width:50%;height:100%;background:#f7f7f7;z-index:1}
 .envelope::before{left:0;clip-path:polygon(0 0,100% 50%,0 100%)}
 .envelope::after{right:0;clip-path:polygon(100% 0,0 50%,100% 100%)}
-.envelope-top{position:absolute;inset:0;background:#ececec;clip-path:polygon(0 0,50% 58%,100% 0)}
-.envelope-seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-44%);width:114px;height:114px;object-fit:contain;filter:drop-shadow(0 4px 5px rgba(0,0,0,.22))}
+.envelope-top{position:absolute;inset:0;background:#ececec;clip-path:polygon(0 0,50% 58%,100% 0);z-index:2}
+.envelope-seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-42%);width:126px;height:126px;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.22));z-index:5}
 
 .envelope-btn{margin-top:26px}
-.hero-phrase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(2rem,6vw,3rem);line-height:1.28;color:#5b5b58;margin:28px auto 0;max-width:560px}
-.corner-floral-left,.corner-floral-right{position:absolute;top:16px;width:clamp(78px,15vw,138px);height:auto;pointer-events:none;opacity:.9}.corner-floral-left{left:10px;transform:scaleX(-1)}.corner-floral-right{right:10px}
+.hero-phrase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(2rem,6vw,3rem);line-height:1.28;color:var(--pacay-dark);margin:28px auto 0;max-width:560px}
+.corner-floral-left,.corner-floral-right{position:absolute;top:18px;width:clamp(108px,20vw,185px);height:auto;pointer-events:none;opacity:1;z-index:3;filter:drop-shadow(0 3px 8px rgba(185,151,91,.18))}.corner-floral-left{left:12px;transform:scaleX(-1)}.corner-floral-right{right:12px}
 
 .photo-card{width:min(560px,100%);margin:34px auto 0;padding:14px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 28px rgba(0,0,0,.06)}
 .photo{aspect-ratio:4/5;object-fit:cover;object-position:center}
@@ -81,30 +81,30 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
 .parent-grid,.location-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .sponsor-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .panel,.location{background:rgba(255,255,255,.86);border:1px solid var(--line);padding:32px 22px}
-.person{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin:6px 0}
+.person{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin:6px 0;color:var(--pacay-dark)}
 .calendar{max-width:420px;margin:30px auto;display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
 .calendar div{aspect-ratio:1;display:grid;place-items:center;font-size:13px}
 .calendar .dayname{font-size:11px;font-weight:700;color:var(--muted)}
 .calendar .heartday{position:relative;color:#fff;font-weight:700}
-.calendar .heartday::before{content:'❤';position:absolute;font-size:32px;color:var(--red);z-index:0;line-height:1}
-.calendar .heartday span{position:relative;z-index:1;font-size:12px;margin-top:-2px}
+.calendar .heartday::before{content:'❤';position:absolute;font-size:44px;color:var(--red);z-index:0;line-height:1;filter:drop-shadow(0 2px 2px rgba(0,0,0,.08))}
+.calendar .heartday span{position:relative;z-index:1;font-size:14px;font-weight:700;margin-top:-3px}
 .counter{display:flex;justify-content:center;gap:clamp(10px,4vw,26px);margin-top:28px;flex-wrap:wrap}
 .counter-box{min-width:72px}
 .counter strong{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,7vw,3.6rem);font-weight:500;line-height:1}
 .counter span{display:block;font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
-.location h3{font-size:34px;margin-bottom:8px}.location p{margin-bottom:16px}
+.location h3{font-size:34px;margin-bottom:8px;color:var(--pacay-dark)}.location p{margin-bottom:16px;color:var(--pacay-dark)}
 .time{font-family:'Cormorant Garamond',serif;font-size:58px;line-height:1.1;color:var(--gold);margin-bottom:8px}
 .location .label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--pacay);font-weight:700}
 .sponsor-grid .panel{padding:22px 14px}
-.sponsor-grid h3{font-size:25px;margin-bottom:8px}
-.sponsor-grid p{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.35;margin:0}
+.sponsor-grid h3{font-size:25px;margin-bottom:8px;color:var(--pacay-dark)}
+.sponsor-grid p{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.35;margin:0;color:var(--pacay-dark)}
 .sicon{display:block;font-size:22px;color:var(--gold);margin-bottom:8px}
-.rsvp{background:linear-gradient(180deg,var(--pacay),var(--pacay-dark));color:#fff}
-.rsvp .kicker{color:#efe1bf}.rsvp .lead,.rsvp p{color:#efeae1}
-.rsvp .btn{background:#f6ecdd;color:#2b2b2b;border-color:#f6ecdd}.rsvp .btn:hover{background:#fff;border-color:#fff}
-.footer-contact{margin-top:36px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18)}
-.footer-contact p{margin:8px 0;color:#e7ddd2}
-.end{background:#202622;color:#fff;text-align:center;padding:62px 20px}
+.rsvp{background:linear-gradient(180deg,#f7f3ec,#efe8dd);color:var(--pacay-dark)}
+.rsvp .kicker{color:var(--gold)}.rsvp h2{color:var(--pacay-dark)}.rsvp .lead,.rsvp p{color:var(--pacay-dark)}
+.rsvp .btn{background:var(--pacay);color:#fff;border-color:var(--pacay);padding:18px 30px;min-height:58px;box-shadow:0 12px 24px rgba(70,91,77,.15)}.rsvp .btn:hover{background:var(--pacay-dark);border-color:var(--pacay-dark)}
+.footer-contact{margin-top:36px;padding-top:26px;border-top:1px solid rgba(93,120,101,.22)}
+.footer-contact p{margin:8px 0;color:var(--pacay-dark);font-size:18px}
+.end{background:#233129;color:#fff;text-align:center;padding:62px 20px}
 .end h2{font-family:'Great Vibes',cursive;font-size:clamp(4rem,12vw,6.2rem);margin:0;font-weight:400}
 .end p{color:#dfd5ca}
 .backtop{font-size:12px;color:#f1dfbd;text-decoration:none}
@@ -113,14 +113,14 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
   .parent-grid,.location-grid,.sponsor-grid{grid-template-columns:1fr}
   .sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .envelope{height:160px}
-  .envelope-seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-44%);width:114px;height:114px;object-fit:contain;filter:drop-shadow(0 4px 5px rgba(0,0,0,.22))}
+  .envelope-seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-42%);width:126px;height:126px;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.22));z-index:5}
 }
 @media(max-width:420px){
   .sponsor-grid{grid-template-columns:1fr}
   .hero .names{font-size:clamp(4.2rem,18vw,6rem)}
   .hero-phrase{font-size:2.1rem}
-  .corner-floral-left{left:0;top:12px;width:90px}
-  .corner-floral-right{right:0;top:12px;width:90px}
+  .corner-floral-left{left:2px;top:18px;width:112px}
+  .corner-floral-right{right:2px;top:18px;width:112px}
 }
 </style>
 </head>
@@ -195,8 +195,8 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
         <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div>
         <div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div>
       </div>
-      <h3 style="font-size:2rem;margin-bottom:8px">Falta muy poquito</h3>
-      <p>Para comenzar a celebrar nuestro amor</p>
+      <h3 style="font-size:2rem;margin-bottom:8px;color:var(--pacay-dark)">Falta muy poquito</h3>
+      <p style="color:var(--pacay-dark)">Para comenzar a celebrar nuestro amor</p>
       <div class="counter" id="counter">
         <div class="counter-box"><strong id="days">—</strong><span>Días</span></div>
         <div class="counter-box"><strong id="hours">—</strong><span>Horas</span></div>
@@ -298,20 +298,21 @@ function tick(){
 tick(); setInterval(tick,1000);
 const falling = document.getElementById('falling-decor');
 const symbols = ['♡','❀','♥','❦'];
-const colors = ['#d6c8b2','#e2d6c5','#b78d67','#d8bfb0','#7a8f80'];
+const colors = ['#d6c8b2','#e2d6c5','#b78d67','#d8bfb0','#7a8f80','#c9a44f','#d4af37','#e1c16e','#f0d78a'];
 function makeFall(){
   const s=document.createElement('span');
   s.className='fall-item';
   s.textContent=symbols[Math.floor(Math.random()*symbols.length)];
   s.style.left=(Math.random()*100)+'vw';
-  s.style.fontSize=(12+Math.random()*12)+'px';
+  s.style.fontSize=(12+Math.random()*15)+'px';
   s.style.color=colors[Math.floor(Math.random()*colors.length)];
+  s.style.opacity = Math.random() < 0.45 ? (0.45 + Math.random()*0.25) : (0.18 + Math.random()*0.18);
   s.style.animationDuration=(11+Math.random()*10)+'s, '+(3+Math.random()*3)+'s';
   falling.appendChild(s);
   setTimeout(()=>s.remove(),22000);
 }
-for(let i=0;i<10;i++) setTimeout(makeFall,i*650);
-setInterval(makeFall,1250);
+for(let i=0;i<14;i++) setTimeout(makeFall,i*520);
+setInterval(makeFall,980);
 </script>
 </body>
 </html>
