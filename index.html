@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#173630">
+<meta name="theme-color" content="#536f5d">
 <meta name="description" content="Esteban y Jhovana · 9 de enero de 2027 · Nuestra boda">
 <title>Esteban y Jhovana · Nuestra boda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,174 +11,140 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 :root{
-  --forest:#18362f; --forest-2:#112821; --gold:#b59162; --cream:#fbf7ef; --cream-2:#f6f0e5; --line:#ddd4c5;
-  --muted:#6f7b75; --rose:#d8aaa9; --soft:#fffdfa;
+  --pacay:#5d7865;
+  --pacay-dark:#465b4d;
+  --gold:#b9975b;
+  --gold-soft:#d6c092;
+  --cream:#f6f3ef;
+  --soft:#fbf9f6;
+  --line:#e5ddd1;
+  --text:#2d2d2d;
+  --muted:#6c6a66;
+  --red:#c73737;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--forest);line-height:1.65;overflow-x:hidden}
-body.locked{overflow:hidden}
-a,button{font:inherit}
-a{color:inherit}
+body{margin:0;background:var(--cream);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.65;overflow-x:hidden}
+a,button{font:inherit} a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 h1,h2,h3,h4,p{margin-top:0}
 h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500}
-p{font-size:15px}
 .wrap{width:min(960px,90%);margin:auto}
-.section{padding:96px 0;position:relative;text-align:center}
-.section.alt{background:var(--cream-2)}
-.kicker{letter-spacing:.28em;text-transform:uppercase;font-size:10px;font-weight:700;color:var(--gold)}
-h2{font-size:clamp(2.5rem,7vw,4.9rem);line-height:1.05;margin:.15em 0 .35em}
-.script{font-family:'Great Vibes',cursive;font-size:clamp(3.8rem,11vw,7rem);line-height:1;font-weight:400}
-.lead{font-family:'Cormorant Garamond',serif;font-size:clamp(21px,4vw,30px);line-height:1.4;max-width:620px;margin:18px auto 0}
-.muted{color:var(--muted)}
-.ornament{font-size:26px;color:var(--gold);margin:20px 0}
-.divider{width:min(90px,20%);height:1px;background:var(--gold);margin:28px auto;opacity:.55}
-.btn,.outlinebtn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 28px;text-decoration:none;
-  text-transform:uppercase;letter-spacing:.14em;font-size:11px;transition:.25s ease;border:1px solid transparent;cursor:pointer
-}
-.btn{background:var(--forest);color:#fff;border-color:var(--forest)}
+.kicker{font-size:11px;letter-spacing:.30em;text-transform:uppercase;color:var(--pacay);text-align:center}
+.section{padding:94px 0;position:relative;text-align:center}
+.section.alt{background:#f2eee8}
+.section h2{font-size:clamp(2.4rem,7vw,4.8rem);line-height:1.02;margin:.15em 0 .35em}
+.lead{font-family:'Cormorant Garamond',serif;font-size:clamp(21px,4vw,29px);line-height:1.42;max-width:640px;margin:18px auto 0}
+.script{font-family:'Great Vibes',cursive;font-size:clamp(4.2rem,12vw,7.8rem);line-height:.95;color:#222}
+.ornament{font-size:24px;color:var(--gold);margin:20px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:13px 30px;background:var(--pacay);color:#fff;text-transform:uppercase;letter-spacing:.14em;font-size:11px;transition:.2s;border:1px solid var(--pacay);cursor:pointer}
 .btn:hover{background:var(--gold);border-color:var(--gold)}
-.outlinebtn{border-color:rgba(255,255,255,.9);color:#fff;background:rgba(255,255,255,.08)}
-.outlinebtn:hover{background:rgba(255,255,255,.18)}
+.hero-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:16px 34px;background:var(--pacay);color:#fff;font-size:15px;letter-spacing:.01em;border:0;box-shadow:0 12px 30px rgba(0,0,0,.10)}
+.hero-btn:hover{background:var(--pacay-dark)}
 
-/* Intro / sobre */
-.intro-screen{
-  position:fixed; inset:0; z-index:30; display:grid; place-items:center;
-  background:linear-gradient(180deg, rgba(17,40,33,.88), rgba(17,40,33,.94)), url('pareja.png') center 18%/cover no-repeat;
-  transition:opacity .65s ease, visibility .65s ease;
-}
-.intro-screen.hide{opacity:0; visibility:hidden}
-.intro-backdrop{position:absolute;inset:0;background:radial-gradient(circle at center, rgba(255,255,255,.08), transparent 55%)}
-.intro-card{position:relative;z-index:1;text-align:center;color:#fff;padding:24px;width:min(440px,92%)}
-.envelope-wrap{position:relative;width:min(360px,88vw);height:250px;margin:0 auto 28px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.25))}
-.envelope{
-  position:absolute;inset:auto 0 0 0;height:210px;background:linear-gradient(180deg,#f6ead8,#efdfc6);border-radius:0 0 16px 16px;
-  box-shadow:0 10px 35px rgba(0,0,0,.15);overflow:hidden
-}
-.envelope:before,.envelope:after{content:"";position:absolute;bottom:0;width:55%;height:100%;background:#eedcbf}
-.envelope:before{left:-6%;clip-path:polygon(0 100%,100% 100%,100% 0)}
-.envelope:after{right:-6%;clip-path:polygon(0 0,100% 100%,0 100%)}
-.flap{
-  position:absolute;left:0;right:0;top:39px;margin:auto;width:100%;height:150px;background:linear-gradient(180deg,#f3e5cf,#ead5b4);
-  clip-path:polygon(50% 100%,0 0,100% 0);transform-origin:top center;animation:flapFloat 4s ease-in-out infinite;
-}
-@keyframes flapFloat{0%,100%{transform:rotateX(0)}50%{transform:rotateX(8deg)}}
-.letter{
-  position:absolute;left:50%;top:24px;transform:translateX(-50%);width:86%;background:rgba(255,255,255,.97);border-radius:10px;padding:24px 16px 20px;
-  box-shadow:0 8px 22px rgba(0,0,0,.12)
-}
-.letter .small{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:700}
-.letter .names{font-family:'Great Vibes',cursive;font-size:54px;line-height:.95;color:var(--forest);margin:10px 0 6px}
-.letter .sub{font-family:'Cormorant Garamond',serif;color:#55716a;font-size:25px;margin:0}
-.intro-copy{margin:8px auto 18px;max-width:340px;color:#f8f4eb}
-.intro-foot{font-size:11px;letter-spacing:.2em;opacity:.9;margin-top:16px}
-
-/* floating hearts / leaves */
-#falling-decor{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
-.fall-item{position:absolute;top:-10vh;font-size:14px;opacity:.22;animation-name:falling, sway;animation-timing-function:linear, ease-in-out;animation-iteration-count:1,infinite}
+#falling-decor{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:6}
+.fall-item{position:absolute;top:-10vh;font-size:14px;opacity:.16;animation-name:falling, sway;animation-timing-function:linear, ease-in-out;animation-iteration-count:1,infinite}
 @keyframes falling{to{transform:translateY(115vh) rotate(360deg)}}
-@keyframes sway{0%,100%{margin-left:0}50%{margin-left:26px}}
+@keyframes sway{0%,100%{margin-left:0}50%{margin-left:22px}}
 
-/* cover */
-.cover{
-  min-height:100svh;position:relative;display:grid;place-items:center;text-align:center;color:#fff;
-  background:linear-gradient(180deg,rgba(8,24,20,.68),rgba(8,24,20,.34) 44%,rgba(8,24,20,.68)), url('pareja.png') center 22%/cover no-repeat;
+.music-btn{position:fixed;right:18px;bottom:18px;z-index:12;width:54px;height:54px;border-radius:50%;border:1px solid #d9ccb7;background:#faf6ee;color:#232323;box-shadow:0 10px 24px rgba(0,0,0,.14);font-size:20px;cursor:pointer}
+
+.hero{
+  min-height:100svh;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(180deg, #f6f3ef 0%, #f7f4f0 68%, #f4efe7 100%);
 }
-.cover-content{position:relative;padding:90px 16px 110px;max-width:760px;text-shadow:0 3px 18px rgba(0,0,0,.35)}
-.cover h1{font-family:'Great Vibes',cursive;font-size:clamp(5rem,15vw,10rem);line-height:.9;font-weight:400;margin:24px 0}
-.cover .date{font-size:12px;letter-spacing:.32em;margin-bottom:8px}
-.cover .kicker{color:#f0dec4}
-.cover footer{position:absolute;left:0;right:0;bottom:20px;font-size:11px;letter-spacing:.18em;padding:0 20px}
+.hero-inner{position:relative;z-index:2;width:min(860px,92%);padding:56px 0 70px}
+.hero .names{font-family:'Great Vibes',cursive;font-size:clamp(4.8rem,18vw,8.5rem);line-height:.88;color:#232323;margin:18px 0 8px}
+.hero .date{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--pacay-dark);margin:8px 0 44px}
+.hero-photo{display:none}
+.envelope-box{width:min(500px,86vw);margin:0 auto;position:relative}
+.envelope{position:relative;width:100%;height:180px;background:#f1f1f1;border-radius:2px;box-shadow:0 16px 30px rgba(0,0,0,.08)}
+.envelope::before,.envelope::after{content:'';position:absolute;top:0;width:50%;height:100%;background:#f7f7f7}
+.envelope::before{left:0;clip-path:polygon(0 0,100% 50%,0 100%)}
+.envelope::after{right:0;clip-path:polygon(100% 0,0 50%,100% 100%)}
+.envelope-top{position:absolute;inset:0;background:#ececec;clip-path:polygon(0 0,50% 58%,100% 0)}
+.envelope-seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-44%);width:114px;height:114px;object-fit:contain;filter:drop-shadow(0 4px 5px rgba(0,0,0,.22))}
 
-.photo-card{width:min(530px,100%);margin:40px auto 0;padding:14px;background:white;border:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.06)}
+.envelope-btn{margin-top:26px}
+.hero-phrase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(2rem,6vw,3rem);line-height:1.28;color:#5b5b58;margin:28px auto 0;max-width:560px}
+.corner-floral-left,.corner-floral-right{position:absolute;top:16px;width:clamp(78px,15vw,138px);height:auto;pointer-events:none;opacity:.9}.corner-floral-left{left:10px;transform:scaleX(-1)}.corner-floral-right{right:10px}
+
+.photo-card{width:min(560px,100%);margin:34px auto 0;padding:14px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 28px rgba(0,0,0,.06)}
 .photo{aspect-ratio:4/5;object-fit:cover;object-position:center}
 .parent-grid,.location-grid,.sponsor-grid{display:grid;gap:24px;margin-top:38px}
 .parent-grid,.location-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .sponsor-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.panel,.location,.gift-card{background:rgba(255,255,255,.84);border:1px solid var(--line);padding:34px 22px}
-.person{font-family:'Cormorant Garamond',serif;font-size:25px;line-height:1.2;margin:6px 0}
-.calendar{max-width:420px;margin:28px auto;display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.panel,.location{background:rgba(255,255,255,.86);border:1px solid var(--line);padding:32px 22px}
+.person{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin:6px 0}
+.calendar{max-width:420px;margin:30px auto;display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
 .calendar div{aspect-ratio:1;display:grid;place-items:center;font-size:13px}
 .calendar .dayname{font-size:11px;font-weight:700;color:var(--muted)}
-.calendar .bigday{border-radius:50%;background:var(--forest);color:#fff;box-shadow:0 0 0 6px rgba(181,145,98,.13)}
+.calendar .heartday{position:relative;color:#fff;font-weight:700}
+.calendar .heartday::before{content:'❤';position:absolute;font-size:32px;color:var(--red);z-index:0;line-height:1}
+.calendar .heartday span{position:relative;z-index:1;font-size:12px;margin-top:-2px}
 .counter{display:flex;justify-content:center;gap:clamp(10px,4vw,26px);margin-top:28px;flex-wrap:wrap}
 .counter-box{min-width:72px}
 .counter strong{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,7vw,3.6rem);font-weight:500;line-height:1}
 .counter span{display:block;font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
-.location h3{font-size:34px;margin-bottom:8px}
+.location h3{font-size:34px;margin-bottom:8px}.location p{margin-bottom:16px}
 .time{font-family:'Cormorant Garamond',serif;font-size:58px;line-height:1.1;color:var(--gold);margin-bottom:8px}
-.location .label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
-.sponsor-grid .panel{padding:24px 14px}
-.sponsor-grid h3{font-size:27px;margin-bottom:8px}
+.location .label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--pacay);font-weight:700}
+.sponsor-grid .panel{padding:22px 14px}
+.sponsor-grid h3{font-size:25px;margin-bottom:8px}
 .sponsor-grid p{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.35;margin:0}
-.music-btn{position:fixed;right:18px;bottom:18px;z-index:10;width:50px;height:50px;border-radius:999px;border:1px solid #d3c2a6;background:#faf5ea;color:var(--forest);box-shadow:0 8px 24px rgba(0,0,0,.14);cursor:pointer;font-size:20px;display:none}
-body.opened .music-btn{display:block}
-.rsvp{background:linear-gradient(180deg,var(--forest),var(--forest-2));color:#fff}
-.rsvp .kicker{color:#e0c69c}
-.rsvp .lead,.rsvp p{color:#edf0eb}
-.rsvp .btn{background:#f3ead9;color:var(--forest);border-color:#f3ead9}
-.rsvp .btn:hover{background:#fff;border-color:#fff}
-.gift-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;margin-top:36px}
-.gift-card{text-align:left}
-.gift-card p{color:#51615a}
-.qr-box{background:white;border:1px solid var(--line);padding:18px;text-align:center}
-.qr-box img{width:min(300px,100%);margin:auto;border-radius:14px}
-.qr-note{font-size:13px;color:var(--muted);margin-top:10px}
-.end{background:#132b25;color:#fff;text-align:center;padding:68px 20px}
-.end h2{font-family:'Great Vibes',cursive;font-size:clamp(4rem,11vw,6.4rem);font-weight:400;margin:0}
-.end p{color:#ecdfca}
+.sicon{display:block;font-size:22px;color:var(--gold);margin-bottom:8px}
+.rsvp{background:linear-gradient(180deg,var(--pacay),var(--pacay-dark));color:#fff}
+.rsvp .kicker{color:#efe1bf}.rsvp .lead,.rsvp p{color:#efeae1}
+.rsvp .btn{background:#f6ecdd;color:#2b2b2b;border-color:#f6ecdd}.rsvp .btn:hover{background:#fff;border-color:#fff}
+.footer-contact{margin-top:36px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18)}
+.footer-contact p{margin:8px 0;color:#e7ddd2}
+.end{background:#202622;color:#fff;text-align:center;padding:62px 20px}
+.end h2{font-family:'Great Vibes',cursive;font-size:clamp(4rem,12vw,6.2rem);margin:0;font-weight:400}
+.end p{color:#dfd5ca}
 .backtop{font-size:12px;color:#f1dfbd;text-decoration:none}
-.small-note{font-size:12px;color:var(--muted)}
 @media(max-width:760px){
-  .section{padding:78px 0}
-  .parent-grid,.location-grid,.sponsor-grid,.gift-wrap{grid-template-columns:1fr}
+  .section{padding:76px 0}
+  .parent-grid,.location-grid,.sponsor-grid{grid-template-columns:1fr}
   .sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .gift-card{text-align:center}
-  .cover{background-position:center 16%}
+  .envelope{height:160px}
+  .envelope-seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-44%);width:114px;height:114px;object-fit:contain;filter:drop-shadow(0 4px 5px rgba(0,0,0,.22))}
 }
 @media(max-width:420px){
   .sponsor-grid{grid-template-columns:1fr}
-  .time{font-size:46px}
-  .envelope-wrap{height:230px}
-  .envelope{height:188px}
-  .letter .names{font-size:46px}
+  .hero .names{font-size:clamp(4.2rem,18vw,6rem)}
+  .hero-phrase{font-size:2.1rem}
+  .corner-floral-left{left:0;top:12px;width:90px}
+  .corner-floral-right{right:0;top:12px;width:90px}
 }
 </style>
 </head>
-<body class="locked">
+<body>
 <div id="falling-decor" aria-hidden="true"></div>
-<div class="intro-screen" id="introScreen">
-  <div class="intro-backdrop"></div>
-  <div class="intro-card">
-    <div class="envelope-wrap" aria-hidden="true">
-      <div class="letter">
-        <div class="small">Con amor, para ti</div>
-        <div class="names">Esteban<br>& Jhovana</div>
-        <p class="sub">Nuestra boda</p>
-      </div>
-      <div class="flap"></div>
-      <div class="envelope"></div>
-    </div>
-    <p class="intro-copy">Hay momentos que merecen ser compartidos con el corazón. Nos alegrará mucho que formes parte de este día tan especial.</p>
-    <button class="outlinebtn" id="openEnvelope">Abrir invitación</button>
-    <div class="intro-foot">09 · ENERO · 2027</div>
-  </div>
-</div>
-
 <audio id="song" src="musica.mp3" preload="auto" loop></audio>
 <button id="musicBtn" class="music-btn" aria-label="Reproducir música" title="Música de fondo">♫</button>
 
-<header class="cover" id="inicio">
-  <div class="cover-content">
-    <p class="kicker">Con amor, para ti</p>
-    <h1>Esteban<br><span style="font-size:.66em">&</span> Jhovana</h1>
-    <p class="date">SÁBADO · 09 · ENERO · 2027</p>
-    <p>Nuestra boda</p>
-    <a class="outlinebtn" href="#bienvenida" id="goWelcome">Deslizar invitación ↓</a>
+<header class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="kicker">Con amor, para ti</div>
+    <img src="flor_dorada.png" class="corner-floral-left" alt="" aria-hidden="true">
+    <img src="flor_dorada.png" class="corner-floral-right" alt="" aria-hidden="true">
+    <div class="names">Esteban y Jhovana</div>
+    <div class="date">09 · ENERO · 2027</div>
+    <div class="envelope-box" aria-hidden="true">
+      <div class="envelope">
+        <div class="envelope-top"></div>
+        <img src="sello_EJ.png" class="envelope-seal" alt="Sello dorado con las iniciales E y J">
+      </div>
+    </div>
+    <div class="envelope-btn"><a class="hero-btn" href="#bienvenida" id="openInvitation">Abrir nuestra invitación &nbsp; ✉</a></div>
+    <div class="hero-phrase">Un día para celebrar.<br>Toda una vida para amarnos.</div>
   </div>
-  <footer>UN DÍA PARA CELEBRAR · TODA UNA VIDA PARA AMARNOS</footer>
 </header>
 
 <main>
@@ -189,7 +155,7 @@ body.opened .music-btn{display:block}
       <div class="script">Esteban & Jhovana</div>
       <p class="lead">Elegimos caminar juntos, compartir nuestros sueños y hacer del amor nuestro hogar.</p>
       <div class="photo-card">
-        <img src="pareja.png" class="photo" alt="Esteban y Jhovana juntos" loading="eager">
+        <img src="pareja.jpg" class="photo" alt="Esteban y Jhovana juntos" loading="eager">
       </div>
       <p class="lead">Un “sí” que nace del corazón, una historia que comienza para siempre.</p>
       <div class="ornament">❦</div>
@@ -224,13 +190,12 @@ body.opened .music-btn{display:block}
       <div class="calendar" aria-label="Calendario enero 2027">
         <div class="dayname">L</div><div class="dayname">M</div><div class="dayname">M</div><div class="dayname">J</div><div class="dayname">V</div><div class="dayname">S</div><div class="dayname">D</div>
         <div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div>
-        <div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div class="bigday">9</div><div>10</div>
+        <div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div class="heartday"><span>9</span></div><div>10</div>
         <div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
         <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div>
         <div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div>
       </div>
-      <div class="divider"></div>
-      <h3 style="font-size:2rem">Falta muy poquito</h3>
+      <h3 style="font-size:2rem;margin-bottom:8px">Falta muy poquito</h3>
       <p>Para comenzar a celebrar nuestro amor</p>
       <div class="counter" id="counter">
         <div class="counter-box"><strong id="days">—</strong><span>Días</span></div>
@@ -251,7 +216,7 @@ body.opened .music-btn{display:block}
           <div class="time">13:00</div>
           <p>Sábado 9 de enero de 2027</p>
           <h3>Iglesia Poder de Dios</h3>
-          <p class="muted">Acompáñanos a recibir la bendición de Dios.</p>
+          <p>Acompáñanos a recibir la bendición de Dios.</p>
           <a class="btn" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x93e373c6aab292bd:0x25987acca3cdeae8?utm_source=mstt_1" target="_blank" rel="noopener noreferrer">Ver ubicación ↗</a>
         </div>
         <div class="location">
@@ -259,7 +224,7 @@ body.opened .music-btn{display:block}
           <div class="time" style="font-size:42px">Después de la ceremonia</div>
           <p>Sábado 9 de enero de 2027</p>
           <h3>Salón de eventos El Palacio</h3>
-          <p class="muted">Celebra con nosotros una tarde llena de amor, alegría y momentos inolvidables.</p>
+          <p>Celebra con nosotros una tarde llena de amor, alegría y momentos inolvidables.</p>
           <a class="btn" href="https://maps.app.goo.gl/ig82a1b3SeS837n57" target="_blank" rel="noopener noreferrer">Cómo llegar ↗</a>
         </div>
       </div>
@@ -272,50 +237,35 @@ body.opened .music-btn{display:block}
       <h2>Nuestros queridos padrinos</h2>
       <div class="ornament">❦</div>
       <div class="sponsor-grid">
-        <div class="panel"><h3>De religión</h3><p>Ernesto Garcia Muñoz<br>Elizabeth Céspedes Ardaya</p></div>
-        <div class="panel"><h3>De torta</h3><p>René Garcia Godoy</p></div>
-        <div class="panel"><h3>De aro</h3><p>Martin Marca Apaza</p></div>
-        <div class="panel"><h3>De civil</h3><p>Cilda Marca Apaza<br>Mario Condori</p></div>
-        <div class="panel"><h3>De video</h3><p>Lurdes Condori Marca</p></div>
-        <div class="panel"><h3>De mosaico</h3><p>Marcia Virginia Aranibar Severiche<br>Jorge Antonio Guzmán Pérez</p></div>
-        <div class="panel"><h3>De sorpresa</h3><p>Rocío Gonzales Rojas<br>Mauricio Ayala Zegarra</p></div>
+        <div class="panel"><span class="sicon">⛪</span><h3>De religión</h3><p>Ernesto Garcia Muñoz<br>Elizabeth Céspedes Ardaya</p></div>
+        <div class="panel"><span class="sicon">🤍</span><h3>De civil</h3><p>Cilda Marca Apaza<br>Mario Condori</p></div>
+        <div class="panel"><span class="sicon">🎂</span><h3>De torta</h3><p>René Garcia Godoy</p></div>
+        <div class="panel"><span class="sicon">💍</span><h3>De aro</h3><p>Martin Marca Apaza</p></div>
+        <div class="panel"><span class="sicon">🎥</span><h3>De video</h3><p>Lurdes Condori Marca</p></div>
+        <div class="panel"><span class="sicon">✨</span><h3>De mosaico</h3><p>Marcia Virginia Aranibar Severiche<br>Jorge Antonio Guzmán Pérez</p></div>
+        <div class="panel"><span class="sicon">🎁</span><h3>De sorpresa</h3><p>Rocío Gonzales Rojas<br>Mauricio Ayala Zegarra</p></div>
+        <div class="panel"><span class="sicon">🌷</span><h3>Madrina de recuerditos</h3><p>Andrea Pericón Gonzales</p></div>
       </div>
       <p class="lead">El amor se vuelve más grande cuando lo celebramos con quienes queremos.</p>
     </div>
   </section>
 
-  <section class="section alt">
-    <div class="wrap">
-      <p class="kicker">Con cariño</p>
-      <h2>Un detalle opcional</h2>
-      <div class="gift-wrap">
-        <div class="gift-card">
-          <p class="lead" style="max-width:none;margin-top:0">Su compañía en este día tan especial ya es un regalo para nosotros.</p>
-          <p>Y si en algún momento desean hacernos un presente de una manera práctica y especial, con mucho cariño les compartimos este QR como una opción.</p>
-          <p class="small-note">Con todo nuestro agradecimiento y cariño.</p>
-        </div>
-        <div class="qr-box">
-          <img src="qr-regalo.jpg" alt="QR de presente para Esteban y Jhovana" loading="lazy">
-          <p class="qr-note">Escanéalo solo si deseas dejarnos un presente con mucho cariño.</p>
-          <a class="btn" href="qr-regalo.jpg" download="QR-Esteban-Jhovana.jpg" style="margin-top:8px">Guardar QR ↓</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section rsvp">
+  <section class="section alt rsvp">
     <div class="wrap">
       <p class="kicker">Tu presencia será nuestro mejor regalo</p>
       <h2>Nos encantará<br>celebrar contigo</h2>
       <p class="lead">Confirma tu asistencia y acompáñanos en este día tan especial.</p>
       <a class="btn" href="https://wa.link/eawivv" target="_blank" rel="noopener noreferrer">Confirmar asistencia por WhatsApp ↗</a>
-      <p style="margin-top:22px;font-size:13px;color:#dbe3dc">Música de fondo: <em>Hasta mi final</em> · Il Divo</p>
+      <div class="footer-contact">
+        <p><strong>¿Te gustó esta invitación?</strong></p>
+        <p>Si quieres una invitación digital así, contáctanos al <strong>79352293</strong>.</p>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="end">
-  <p class="kicker">¡Te esperamos!</p>
+  <p class="kicker" style="color:#d8c4a0">¡Te esperamos!</p>
   <h2>Esteban & Jhovana</h2>
   <p>09 · ENERO · 2027</p>
   <div class="ornament">❦</div>
@@ -324,58 +274,44 @@ body.opened .music-btn{display:block}
 </footer>
 
 <script>
-const body=document.body;
-const introScreen=document.getElementById('introScreen');
-const openEnvelope=document.getElementById('openEnvelope');
 const song=document.getElementById('song');
 const musicBtn=document.getElementById('musicBtn');
 let playing=false;
 async function toggleMusic(){
   try{
-    if(playing){song.pause();playing=false}
-    else{await song.play();playing=true}
-    musicBtn.textContent=playing?'❚❚':'♫';
-    musicBtn.setAttribute('aria-label',playing?'Pausar música':'Reproducir música');
-  }catch(e){musicBtn.textContent='♫';}
+    if(playing){ song.pause(); playing=false; }
+    else{ await song.play(); playing=true; }
+    musicBtn.textContent = playing ? '❚❚' : '♫';
+  }catch(e){ musicBtn.textContent='♫'; }
 }
 musicBtn.addEventListener('click',toggleMusic);
-function openInvitation(){
-  body.classList.remove('locked');
-  body.classList.add('opened');
-  introScreen.classList.add('hide');
-  if(!playing) toggleMusic();
-}
-openEnvelope.addEventListener('click',openInvitation);
-document.getElementById('goWelcome').addEventListener('click',()=>{if(!playing) toggleMusic()});
-
+document.getElementById('openInvitation').addEventListener('click',()=>{ if(!playing) toggleMusic(); });
 const target = new Date('2027-01-09T13:00:00-04:00');
 function tick(){
-  let ms = Math.max(0, target - Date.now());
-  let s = Math.floor(ms/1000);
+  const ms = Math.max(0,target - Date.now());
+  const s = Math.floor(ms/1000);
   document.getElementById('days').textContent = Math.floor(s/86400);
   document.getElementById('hours').textContent = String(Math.floor(s/3600)%24).padStart(2,'0');
   document.getElementById('minutes').textContent = String(Math.floor(s/60)%60).padStart(2,'0');
   document.getElementById('seconds').textContent = String(s%60).padStart(2,'0');
 }
 tick(); setInterval(tick,1000);
-
 const falling = document.getElementById('falling-decor');
-const symbols = ['♡','♥','❦','❀'];
-const colors = ['#d9aaa8','#b59162','#7f9a8d','#dfc5a3'];
+const symbols = ['♡','❀','♥','❦'];
+const colors = ['#d6c8b2','#e2d6c5','#b78d67','#d8bfb0','#7a8f80'];
 function makeFall(){
-  const s = document.createElement('span');
+  const s=document.createElement('span');
   s.className='fall-item';
-  s.textContent = symbols[Math.floor(Math.random()*symbols.length)];
-  s.style.left = Math.random()*100 + 'vw';
-  s.style.fontSize = (12 + Math.random()*12) + 'px';
-  s.style.color = colors[Math.floor(Math.random()*colors.length)];
-  s.style.animationDuration = (10 + Math.random()*10) + 's, ' + (3 + Math.random()*3) + 's';
-  s.style.animationDelay = '0s, 0s';
+  s.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  s.style.left=(Math.random()*100)+'vw';
+  s.style.fontSize=(12+Math.random()*12)+'px';
+  s.style.color=colors[Math.floor(Math.random()*colors.length)];
+  s.style.animationDuration=(11+Math.random()*10)+'s, '+(3+Math.random()*3)+'s';
   falling.appendChild(s);
   setTimeout(()=>s.remove(),22000);
 }
-for(let i=0;i<12;i++) setTimeout(makeFall, i*700);
-setInterval(makeFall, 1100);
+for(let i=0;i<10;i++) setTimeout(makeFall,i*650);
+setInterval(makeFall,1250);
 </script>
 </body>
 </html>
